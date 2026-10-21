@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-interface SectionHeadingProps {
+export interface SectionHeadingProps {
   eyebrow?: string;
   title: string;
   description?: string;

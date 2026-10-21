@@ -70,33 +70,42 @@ export default function HeroCarousel() {
       <div className="relative z-10 flex h-full items-center">
         <div className="container-x">
           <div className="max-w-2xl">
-            {slides.map((slide, i) => (
-              <div
-                key={slide.id}
-                className={`transition-all duration-700 ease-out ${
-                  i === index ? 'block translate-y-0 opacity-100' : 'hidden translate-y-6 opacity-0'
-                }`}
-                aria-hidden={i !== index}
-              >
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
-                  <span className="h-1.5 w-1.5 rounded-full bg-gold-400" />
-                  {slide.tag}
-                </span>
-                <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tighter2 text-white text-balance sm:text-5xl lg:text-6xl xl:text-7xl">
-                  {slide.title}
-                </h1>
-                <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">{slide.copy}</p>
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <Link to="/services" className="btn-gold">
-                    Discover More
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link to="/about" className="btn-ghost-light">
-                    About AGRGROUPS
-                  </Link>
+            {slides.map((slide, i) => {
+              const isActive = i === index;
+              return (
+                <div
+                  key={slide.id}
+                  className={`transition-all duration-700 ease-out ${
+                    isActive ? 'block translate-y-0 opacity-100' : 'hidden translate-y-6 opacity-0'
+                  }`}
+                  aria-hidden={!isActive}
+                >
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+                    <span className="h-1.5 w-1.5 rounded-full bg-gold-400" />
+                    {slide.tag}
+                  </span>
+                  {isActive ? (
+                    <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tighter2 text-white text-balance sm:text-5xl lg:text-6xl xl:text-7xl">
+                      {slide.title}
+                    </h1>
+                  ) : (
+                    <div className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tighter2 text-white text-balance sm:text-5xl lg:text-6xl xl:text-7xl">
+                      {slide.title}
+                    </div>
+                  )}
+                  <p className="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">{slide.copy}</p>
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
+                    <Link to="/services" className="btn-gold">
+                      Discover More
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                    <Link to="/about" className="btn-ghost-light">
+                      About AGRGROUPS
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

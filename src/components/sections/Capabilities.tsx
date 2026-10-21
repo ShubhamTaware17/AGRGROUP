@@ -1,4 +1,4 @@
-import Reveal from '@/components/Reveal';
+import Reveal from '@/components/common/Reveal';
 import { capabilities } from '@/data/content';
 
 export default function Capabilities() {

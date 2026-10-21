@@ -1,6 +1,6 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { ArrowRight, ArrowLeft, Check } from 'lucide-react';
-import Reveal from '@/components/Reveal';
+import { Reveal } from '@/components';
 import { services } from '@/data/content';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 

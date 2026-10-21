@@ -1,17 +1,8 @@
-export type ServiceSlug = 'infrastructure' | 'healthcare-technology' | 'skill-development';
+import type { Service, SlideItem, ApproachItem, CapabilityItem, StatItem, CompanyInfo, NavItem } from '@/types';
 
-export interface Service {
-  slug: ServiceSlug;
-  name: string;
-  short: string;
-  description: string;
-  image: string;
-  alt: string;
-  highlights: string[];
-  capabilities: string[];
-}
+export type { ServiceSlug, Service } from '@/types';
 
-export const slides = [
+export const slides: readonly SlideItem[] = [
   {
     id: 'infrastructure',
     tag: 'Infrastructure',
@@ -89,7 +80,7 @@ export const services: Service[] = [
   },
 ];
 
-export const approach = [
+export const approach: readonly ApproachItem[] = [
   {
     title: 'Strategic Execution',
     description: 'Disciplined planning, coordination, and accountability across every project — so commitments become deliverables.',
@@ -112,7 +103,7 @@ export const approach = [
   },
 ] as const;
 
-export const capabilities = [
+export const capabilities: readonly CapabilityItem[] = [
   {
     title: 'Execution Excellence',
     description:
@@ -136,14 +127,14 @@ export const capabilities = [
   },
 ] as const;
 
-export const approachStats = [
+export const approachStats: readonly StatItem[] = [
   { value: 100, suffix: '%', label: 'Commitment to delivery', note: 'Every engagement treated as a commitment, not a transaction.' },
   { value: 3, suffix: '', label: 'Business verticals', note: 'Infrastructure, healthcare technology, and skill development.' },
   { value: 24, suffix: '/7', label: 'Operational support', note: 'Responsive support across project and service lifecycles.' },
   { value: 1, suffix: '', label: 'Shared standard', note: 'One quality benchmark applied across every business unit.' },
 ] as const;
 
-export const company = {
+export const company: CompanyInfo = {
   name: 'AGRGROUPS',
   tagline: 'Building Value Across Industries',
   intro:
@@ -156,7 +147,7 @@ export const company = {
   addressLines: ['AGRGROUPS', 'Registered Office', 'City, State — India'],
 } as const;
 
-export const nav = [
+export const nav: readonly NavItem[] = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
   { label: 'Our Services', to: '/services' },

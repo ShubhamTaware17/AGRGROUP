@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import Reveal from '@/components/Reveal';
+import Reveal from '@/components/common/Reveal';
 
 export default function CTASection() {
   return (

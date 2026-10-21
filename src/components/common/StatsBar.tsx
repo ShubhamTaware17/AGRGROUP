@@ -1,11 +1,5 @@
 import { useCountUp, useReveal } from '@/hooks/useReveal';
-
-export interface StatItem {
-  value: number;
-  suffix: string;
-  label: string;
-  note: string;
-}
+import type { StatItem } from '@/types';
 
 export default function StatsBar({ stats, theme = 'light' }: { stats: readonly StatItem[]; theme?: 'light' | 'dark' }) {
   const { ref, visible } = useReveal<HTMLDivElement>();

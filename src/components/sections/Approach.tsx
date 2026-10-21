@@ -1,5 +1,5 @@
 import { Target, Handshake, ShieldCheck, TrendingUp } from 'lucide-react';
-import Reveal from '@/components/Reveal';
+import Reveal from '@/components/common/Reveal';
 import { approach } from '@/data/content';
 
 const icons = { Target, Handshake, ShieldCheck, TrendingUp } as const;

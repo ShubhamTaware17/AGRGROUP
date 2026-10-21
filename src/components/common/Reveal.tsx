@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react';
 import { useReveal } from '@/hooks/useReveal';
 
-interface RevealProps {
+export interface RevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;

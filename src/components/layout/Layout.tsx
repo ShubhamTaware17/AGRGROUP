@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
-interface LayoutProps {
+export interface LayoutProps {
   children: ReactNode;
 }
 

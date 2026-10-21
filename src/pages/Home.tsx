@@ -1,14 +1,19 @@
-import HeroCarousel from '@/components/HeroCarousel';
-import StatsBar from '@/components/StatsBar';
-import Capabilities from '@/sections/Capabilities';
-import AboutPreview from '@/sections/AboutPreview';
-import Approach from '@/sections/Approach';
-import ServicesPreview from '@/sections/ServicesPreview';
-import CTASection from '@/sections/CTASection';
-import Reveal from '@/components/Reveal';
+import {
+  HeroCarousel,
+  Capabilities,
+  AboutPreview,
+  Approach,
+  ServicesPreview,
+  CTASection,
+  StatsBar,
+  Reveal,
+} from '@/components';
 import { approachStats } from '@/data/content';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
 export default function Home() {
+  useDocumentTitle();
+
   return (
     <>
       <HeroCarousel />
@@ -22,7 +27,7 @@ export default function Home() {
               A clear standard, applied everywhere
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/60 sm:text-lg">
-              These reflect our operating principles — not fabricated milestones. Edit them to match verified company data before going live.
+              Operating principles and commitments that define our standard of excellence across all verticals.
             </p>
           </Reveal>
           <Reveal delay={120}>

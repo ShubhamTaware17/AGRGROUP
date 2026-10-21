@@ -1,29 +1,21 @@
 import { useState, type FormEvent } from 'react';
 import { MapPin, Phone, Mail, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
-import Reveal from '@/components/Reveal';
+import { Reveal } from '@/components';
 import { company, services } from '@/data/content';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { submitContactForm } from '@/services/contactService';
+import type { ContactFormData, FormStatus } from '@/types';
 
-type Status = 'idle' | 'loading' | 'success' | 'error';
-
-interface FormState {
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-}
-
-const empty: FormState = { name: '', email: '', phone: '', subject: '', message: '' };
+const empty: ContactFormData = { name: '', email: '', phone: '', subject: '', message: '' };
 
 export default function Contact() {
   useDocumentTitle('Contact Us');
-  const [form, setForm] = useState<FormState>(empty);
-  const [status, setStatus] = useState<Status>('idle');
-  const [errors, setErrors] = useState<Partial<FormState>>({});
+  const [form, setForm] = useState<ContactFormData>(empty);
+  const [status, setStatus] = useState<FormStatus>('idle');
+  const [errors, setErrors] = useState<Partial<ContactFormData>>({});
 
   function validate(): boolean {
-    const e: Partial<FormState> = {};
+    const e: Partial<ContactFormData> = {};
     if (!form.name.trim()) e.name = 'Please enter your name.';
     if (!form.email.trim()) e.email = 'Please enter your email.';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Please enter a valid email address.';
@@ -37,25 +29,19 @@ export default function Contact() {
     if (!validate()) return;
     setStatus('loading');
     try {
-      const res = await fetch(`${import.meta.env.VITE_SUPABASE_URL ?? ''}/functions/v1/contact-form`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      }).catch(() => null);
-
-      if (res && res.ok) {
+      const result = await submitContactForm(form);
+      if (result.success) {
         setStatus('success');
         setForm(empty);
-        return;
+      } else {
+        setStatus('error');
       }
-
-      throw new Error('No submission endpoint configured');
     } catch {
       setStatus('error');
     }
   }
 
-  function update<K extends keyof FormState>(key: K, value: string) {
+  function update<K extends keyof ContactFormData>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }));
     if (errors[key]) setErrors((e) => ({ ...e, [key]: undefined }));
   }
@@ -242,9 +228,6 @@ export default function Contact() {
                       </>
                     )}
                   </button>
-                  <p className="text-xs text-ink-400">
-                    Note: A submission endpoint must be configured for the form to deliver messages. Contact details above are editable placeholders.
-                  </p>
                 </form>
               </div>
             </Reveal>

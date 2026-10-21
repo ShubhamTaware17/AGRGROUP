@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import Reveal from '@/components/Reveal';
+import Reveal from '@/components/common/Reveal';
 import { services } from '@/data/content';
 
 export default function ServicesPreview() {

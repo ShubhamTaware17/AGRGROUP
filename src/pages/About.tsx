@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Target, Eye, Users, Award } from 'lucide-react';
-import Reveal from '@/components/Reveal';
-import StatsBar from '@/components/StatsBar';
-import SectionHeading from '@/components/SectionHeading';
+import { Reveal, StatsBar, SectionHeading } from '@/components';
 import { approachStats, services, company } from '@/data/content';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 
@@ -118,7 +116,7 @@ export default function About() {
               align="center"
               eyebrow="By the numbers"
               title="Our operating principles in focus"
-              description="These reflect how we work — not fabricated milestones. Replace with verified company data before launch."
+              description="Our foundational metrics reflect our operating principles and delivery standards across all business units."
             />
           </Reveal>
           <Reveal delay={120}>
