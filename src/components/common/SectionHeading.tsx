@@ -24,11 +24,11 @@ export default function SectionHeading({
   return (
     <div className={`flex flex-col ${alignment} gap-4 ${align === 'center' ? 'mx-auto max-w-2xl' : 'max-w-2xl'}`}>
       {eyebrow && <span className={`eyebrow ${light ? '!text-gold-300' : ''}`}>{eyebrow}</span>}
-      <h2 className={`text-3xl font-extrabold leading-[1.1] sm:text-4xl lg:text-[2.75rem] ${light ? '!text-white' : ''}`}>
+      <h2 className={`text-2xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.15] sm:leading-[1.1] ${light ? '!text-white' : ''}`}>
         {title}
       </h2>
       {description && (
-        <p className={`text-base leading-relaxed sm:text-lg ${light ? 'text-white/70' : 'text-ink-500'}`}>{description}</p>
+        <p className={`text-sm sm:text-base lg:text-lg leading-relaxed ${light ? 'text-white/70' : 'text-ink-500'}`}>{description}</p>
       )}
       {linkText && linkTo && (
         <Link to={linkTo} className={`link-underline mt-2 ${light ? '!text-gold-300 hover:!text-gold-200' : ''}`}>

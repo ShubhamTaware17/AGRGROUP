@@ -15,22 +15,28 @@ export default function About() {
   useDocumentTitle('About Us');
   return (
     <>
-      <section className="relative overflow-hidden bg-ink-950 pt-32 pb-20 text-white lg:pt-40 lg:pb-28">
-        <img
-          src="https://images.pexels.com/photos/946310/pexels-photo-946310.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/90 to-ink-950/60" />
-        <div className="container-x relative">
+      <section className="relative overflow-hidden bg-ink-50 pt-28 pb-14 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 border-b border-ink-200/60">
+        {/* Organic Sage Background Waves */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <svg
+            className="absolute -top-16 -right-24 h-[600px] w-[600px] text-brand-100/70 opacity-70"
+            viewBox="0 0 800 800"
+            fill="currentColor"
+          >
+            <path d="M420,50 Q650,80 720,280 Q790,480 620,640 Q450,800 280,720 Q110,640 90,440 Q70,240 230,120 Q390,0 420,50 Z" />
+          </svg>
+        </div>
+        <div className="container-x relative z-10">
           <Reveal className="max-w-3xl">
-            <span className="eyebrow !text-gold-300">About Us</span>
-            <h1 className="mt-4 text-4xl font-extrabold leading-[1.05] tracking-tighter2 sm:text-5xl lg:text-6xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-100/90 px-3.5 py-1.5 text-2xs sm:text-xs font-semibold uppercase tracking-[0.18em] text-brand-800">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold-500" />
+              About Us
+            </span>
+            <h1 className="mt-4 text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] sm:leading-[1.05] tracking-tight sm:tracking-tighter2 text-ink-900">
               Building value across industries, with responsibility
             </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/70">{company.intro}</p>
-            <Link to="/services" className="btn-gold mt-8">
+            <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-ink-500">{company.intro}</p>
+            <Link to="/services" className="btn-gold mt-6 sm:mt-8 w-full sm:w-auto text-center justify-center">
               Explore Our Services
               <ArrowRight className="h-4 w-4" />
             </Link>
@@ -38,9 +44,9 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-white py-14 sm:py-20 lg:py-28">
         <div className="container-x">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal className="relative">
               <div className="overflow-hidden rounded-2xl shadow-card">
                 <img
@@ -53,26 +59,26 @@ export default function About() {
             </Reveal>
             <Reveal delay={120} className="flex flex-col justify-center">
               <span className="eyebrow">Who We Are</span>
-              <h2 className="mt-4 text-3xl font-extrabold leading-[1.1] sm:text-4xl">A diversified group with a focused purpose</h2>
-              <p className="mt-5 text-base leading-relaxed text-ink-600">
+              <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold leading-[1.15] sm:leading-[1.1]">A diversified group with a focused purpose</h2>
+              <p className="mt-4 sm:mt-5 text-sm sm:text-base leading-relaxed text-ink-600">
                 AGRGROUPS operates across three business verticals — infrastructure, healthcare technology, and skill
                 development. Each vertical is built around a simple commitment: deliver dependable solutions, work
                 with trusted partners, and create value that lasts.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-ink-600">
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed text-ink-600">
                 We believe responsible growth means more than financial performance. It means employing people with
                 dignity, skilling communities for the future, and holding ourselves to standards that hold up over
                 time.
               </p>
-              <div className="mt-8 grid grid-cols-2 gap-4">
+              <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {services.map((s) => (
                   <Link
                     key={s.slug}
                     to={`/services/${s.slug}`}
-                    className="group flex items-center gap-3 rounded-xl border border-ink-100 bg-ink-50/50 p-4 transition-colors hover:border-brand-200 hover:bg-brand-50"
+                    className="group flex items-center justify-between gap-3 rounded-xl border border-ink-100 bg-ink-50/50 p-3.5 sm:p-4 transition-colors hover:border-brand-200 hover:bg-brand-50"
                   >
-                    <span className="font-display text-sm font-bold text-ink-900">{s.name}</span>
-                    <ArrowRight className="h-4 w-4 text-brand-600 transition-transform group-hover:translate-x-1" />
+                    <span className="font-display text-xs sm:text-sm font-bold text-ink-900">{s.name}</span>
+                    <ArrowRight className="h-4 w-4 shrink-0 text-brand-600 transition-transform group-hover:translate-x-1" />
                   </Link>
                 ))}
               </div>
@@ -81,26 +87,26 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-ink-50 py-20 lg:py-28">
+      <section className="bg-ink-50 py-14 sm:py-20 lg:py-28">
         <div className="container-x">
-          <Reveal className="mb-12">
+          <Reveal className="mb-10 sm:mb-12">
             <SectionHeading
               eyebrow="Our Foundation"
               title="What guides AGRGROUPS"
               description="The principles that shape our decisions, partnerships, and delivery — every day."
             />
           </Reveal>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((p, i) => {
               const Icon = p.icon;
               return (
                 <Reveal key={p.title} delay={i * 120}>
-                  <article className="h-full rounded-2xl border border-ink-100 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card lg:p-7">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-950 text-gold-400">
-                      <Icon className="h-6 w-6" />
+                  <article className="h-full rounded-2xl border border-ink-100 bg-white p-5 sm:p-6 lg:p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
+                    <span className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-brand-100 text-brand-700 ring-1 ring-brand-200/80">
+                      <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                     </span>
-                    <h3 className="mt-5 text-lg font-bold">{p.title}</h3>
-                    <p className="mt-2.5 text-sm leading-relaxed text-ink-500">{p.text}</p>
+                    <h3 className="mt-4 sm:mt-5 text-base sm:text-lg font-bold">{p.title}</h3>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-ink-500">{p.text}</p>
                   </article>
                 </Reveal>
               );
@@ -109,9 +115,9 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-24">
+      <section className="bg-white py-14 sm:py-20 lg:py-24">
         <div className="container-x">
-          <Reveal className="mx-auto mb-12 max-w-2xl">
+          <Reveal className="mx-auto mb-10 sm:mb-12 max-w-2xl">
             <SectionHeading
               align="center"
               eyebrow="By the numbers"
